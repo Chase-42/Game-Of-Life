@@ -1,0 +1,69 @@
+.gameBoard {
+	position: relative;
+	margin: 0 auto;
+	background-color: #9fbfc5;
+	background-image: linear-gradient(#c5dfe4 1px, transparent 1px),
+		linear-gradient(90deg, #c5dfe4 1px, transparent 1px);
+}
+.Cell {
+	background: #7ca3b1;
+	position: absolute;
+}
+.button {
+	width: 150px;
+	height: 30px;
+	font-family: 'MuseoModerno', cursive;
+	font-weight: bold;
+	font-size: 1rem;
+	color: #58777f;
+	background-color: #d2eaee;
+	border: 2px solid rgb(0, 70, 70);
+	margin: 0.25rem;
+	margin-bottom: 0;
+}
+.button:hover {
+	color: #d2eaee;
+	background-color: #58777f;
+	cursor: pointer;
+}
+.home-button {
+	width: 150px;
+	height: 40px;
+	font-family: 'Noto Serif TC', serif;
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: #72587f;
+	background-color: #d2eaee;
+	border: 2px solid #4f2f4f;
+	font-family: 'Odibee Sans', cursive;
+	transition: width 2s, height 2s, transform 2s;
+}
+.home-button:hover {
+	background-color: rgb(90, 196, 196);
+	color: darkcyan;
+	border: 2px solid darkcyan;
+	transform: rotate(360deg);
+	cursor: pointer;
+}
+.container {
+	width: 100%;
+	height: 550px;
+}
+.speed {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.gameBoard {
+	border: 2px solid darkslategrey;
+}
+.gen {
+	background-color: darkcyan;
+	font-size: 1.5rem;
+	margin: 0 auto;
+	color: white;
+	font-family: 'Odibee Sans', cursive;
+	font-weight: lighter;
+	letter-spacing: 0.5rem;
+	padding: 0rem;
+	font-style: italic;
+}
