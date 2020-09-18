@@ -7,15 +7,22 @@ import Game from './components/game';
 import { Route } from 'react-router-dom';
 // Styles
 import './App.css';
+import styled from 'styled-components';
 
 function App() {
 	return (
-		<div className='App'>
+		<AppDiv>
 			<Header />
 			<Route exact path='/' component={Home} />
 			<Route path='/game' component={Game} />
-		</div>
+		</AppDiv>
 	);
 }
 
 export default App;
+
+const AppDiv = styled.div`
+	font-family: 'Rubik', sans-serif;
+	max-width: 100%;
+	min-width: 100%;
+`;

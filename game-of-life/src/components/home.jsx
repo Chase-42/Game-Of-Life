@@ -88,7 +88,7 @@ const PlayButton = styled.button`
 `;
 
 const RulesDiv = styled.div`
-	height: 16rem;
+	height: 18rem;
 	width: 35rem;
 	padding: 1rem;
 	font-weight: bold;
@@ -103,7 +103,7 @@ const RulesDiv = styled.div`
 `;
 
 const AboutDiv = styled.div`
-	height: 10rem;
+	height: 11rem;
 	width: 95%;
 	padding: 1rem;
 	font-weight: bold;
