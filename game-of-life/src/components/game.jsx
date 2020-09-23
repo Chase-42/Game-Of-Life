@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, ButtonGroup } from 'react-bootstrap';
+import { Dropdown, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 
@@ -59,12 +59,15 @@ class Buttons extends React.Component {
 	render() {
 		return (
 			<div className='center'>
-				<Button className='btn btn-default mr-1' onClick={this.props.playButton}>
-					Play
-				</Button>
-				<Button className='btn btn-default mr-1' onClick={this.props.pauseButton}>
-					Pause
-				</Button>
+				{this.props.engaged ? (
+					<Button className='btn btn-default mr-1' onClick={this.props.pauseButton}>
+						Pause
+					</Button>
+				) : (
+					<Button className='btn btn-default mr-1' onClick={this.props.playButton}>
+						Play
+					</Button>
+				)}
 				<Button className='btn btn-default mr-1' onClick={this.props.clear}>
 					Clear
 				</Button>
@@ -75,11 +78,12 @@ class Buttons extends React.Component {
 					Fast
 				</Button>
 				<Button className='btn btn-default mr-1' onClick={this.props.seed}>
-					Seed
+					Random
 				</Button>
+
 				<Dropdown>
 					<Dropdown.Toggle title='Grid Size' id='size-menu' variant='secondary'>
-						Grid Size
+						GRID SIZE
 					</Dropdown.Toggle>
 
 					<Dropdown.Menu>
@@ -102,6 +106,7 @@ class Buttons extends React.Component {
 class Game extends React.Component {
 	constructor() {
 		super();
+
 		this.speed = 100;
 		this.rows = 30;
 		this.cols = 50;
@@ -116,7 +121,6 @@ class Game extends React.Component {
 
 	componentDidMount() {
 		this.seed();
-		this.playButton();
 	}
 
 	selectBox = (row, col) => {
@@ -130,17 +134,19 @@ class Game extends React.Component {
 
 	seed = () => {
 		const gridFull = this.state.gridFull.map((rowArr) =>
-			rowArr.map(() => Math.floor(Math.random() * 4) === 1)
+			rowArr.map(() => Math.floor(Math.random() * 2) === 1)
 		);
 		this.setState(() => ({ gridFull }));
 	};
 
 	playButton = () => {
+		this.setState({ engaged: true });
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
 	};
 
 	pauseButton = () => {
+		this.setState({ engaged: false });
 		clearInterval(this.intervalId);
 	};
 
@@ -206,6 +212,10 @@ class Game extends React.Component {
 			generation: prevState.generation + 1,
 		}));
 	};
+	handleInterval = (e) => {
+		this.speed = e.target.value;
+		this.playButton();
+	};
 
 	render() {
 		return (
@@ -219,6 +229,7 @@ class Game extends React.Component {
 						clear={this.clear}
 						seed={this.seed}
 						gridSize={this.gridSize}
+						engaged={this.state.engaged}
 					/>
 					<Grid
 						gridFull={this.state.gridFull}
@@ -226,6 +237,22 @@ class Game extends React.Component {
 						cols={this.cols}
 						selectBox={this.selectBox}
 					/>
+					<InputDiv>
+						<InputGroup size='lg' className='input'>
+							<InputGroup.Prepend>
+								<InputGroup.Text id='basic-addon1'>
+									Speed (in milliseconds){' '}
+								</InputGroup.Text>
+							</InputGroup.Prepend>
+							<FormControl
+								aria-describedby='basic-addon1'
+								value={this.speed}
+								onChange={this.handleInterval}
+								onClick={this.handleInterval}
+							/>
+						</InputGroup>
+					</InputDiv>
+
 					<GenerationDiv>Generations: {this.state.generation}</GenerationDiv>
 				</div>
 			</GameDiv>
@@ -256,7 +283,6 @@ const Button = styled.button`
 	color: white;
 	background: #d6532c;
 	text-transform: uppercase;
-
 	border-radius: 5px;
 	box-shadow: 0px 8px 17px 2px rgba(0, 0, 0, 0.14),
 		0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
@@ -271,4 +297,12 @@ const Button = styled.button`
 		background: #537b85;
 		transition: all 0.5s ease 0;
 	}
+	&: focus {
+		box-shadow: none !important;
+	}
+`;
+
+const InputDiv = styled.div`
+	width: 23rem;
+	margin: 1rem auto;
 `;
