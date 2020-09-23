@@ -76,20 +76,22 @@ const PlayButton = styled.button`
 	border: none;
 	font-size: 1.5rem;
 	margin: 30% 0% 20% 0%;
+	// outline: none !important;
+	&:focus {
+		outline: 0;
+	}
 	a {
 		text-decoration: none;
 	}
 	&:hover {
 		cursor: pointer;
-		color: black;
-		background: #537b85;
-		transition: all 0.5s ease 0;
+		background: rgba(214, 83, 44, 0.75);
 	}
 `;
 
 const RulesDiv = styled.div`
-	height: 18rem;
-	width: 35rem;
+	height: auto;
+	width: auto;
 	padding: 1rem;
 	font-weight: bold;
 	text-align: left;
@@ -103,7 +105,7 @@ const RulesDiv = styled.div`
 `;
 
 const AboutDiv = styled.div`
-	height: 11rem;
+	height: auto;
 	width: 95%;
 	padding: 1rem;
 	font-weight: bold;

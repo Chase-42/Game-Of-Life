@@ -42,15 +42,16 @@ const HomeButton = styled.button`
 	border: none;
 	font-size: 1.5rem;
 	margin-right: 1.5rem;
+	&:focus {
+		outline: 0;
+	}
 	a {
 		text-decoration: none;
 	}
 	&:hover {
 		cursor: pointer;
-		color: black;
-		background: #e6b8a5;
-		transition: all 0.5s ease 0;
-		animation: bounce 1s;
+		background: rgba(214, 83, 44, 0.75);
+		animation: bounce 0.75s;
 	}
 	@keyframes bounce {
 		0%,
