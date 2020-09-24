@@ -1,1 +1,12 @@
+* {
+	font-size: calc(10px + 2vmin);
+	font-family: 'Titillium Web', sans-serif;
+}
 
+html,
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}

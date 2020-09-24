@@ -74,9 +74,8 @@ const PlayButton = styled.button`
 	box-shadow: 0px 8px 17px 2px rgba(0, 0, 0, 0.14),
 		0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
 	border: none;
-	font-size: 1.5rem;
+	font-size: 1rem;
 	margin: 30% 0% 20% 0%;
-	// outline: none !important;
 	&:focus {
 		outline: 0;
 	}
@@ -87,11 +86,14 @@ const PlayButton = styled.button`
 		cursor: pointer;
 		background: rgba(214, 83, 44, 0.75);
 	}
+	@media (max-width: 570px) {
+		font-size: 1.25rem;
+	}
 `;
 
 const RulesDiv = styled.div`
 	height: auto;
-	width: auto;
+	width: 80%;
 	padding: 1rem;
 	font-weight: bold;
 	text-align: left;
@@ -100,6 +102,18 @@ const RulesDiv = styled.div`
 	border-radius: 5px;
 	margin-top: 3%;
 	margin-bottom: 4%;
+	h3 {
+		font-size: 1.25rem;
+		@media (max-width: 570px) {
+			font-size: 1.6rem;
+		}
+	}
+	p {
+		font-size: 0.7rem;
+		@media (max-width: 570px) {
+			font-size: 0.8rem;
+		}
+	}
 	box-shadow: 0px 8px 17px 2px rgba(0, 0, 0, 0.14),
 		0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
 `;
@@ -115,6 +129,18 @@ const AboutDiv = styled.div`
 	border-radius: 5px;
 	margin-top: 3%;
 	margin-bottom: 4%;
+	h3 {
+		font-size: 1.25rem;
+		@media (max-width: 570px) {
+			font-size: 1.6rem;
+		}
+	}
+	p {
+		font-size: 0.7rem;
+		@media (max-width: 570px) {
+			font-size: 0.8rem;
+		}
+	}
 	box-shadow: 0px 8px 17px 2px rgba(0, 0, 0, 0.14),
 		0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
 	a {
@@ -122,6 +148,10 @@ const AboutDiv = styled.div`
 		color: black;
 		font-style: italic;
 		font-weight: 700;
+		font-size: 0.7rem;
+		@media (max-width: 570px) {
+			font-size: 0.8rem;
+		}
 		&:hover {
 			cursor: pointer;
 			color: #d6532c;
