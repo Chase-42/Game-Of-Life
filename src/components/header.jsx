@@ -18,7 +18,6 @@ class Header extends Component {
 export default Header;
 
 const HeaderDiv = styled.header`
-	font-size: 1.5rem;
 	background-color: #537b85;
 	box-shadow: 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
 		0px 9px 46px 8px rgba(0, 0, 0, 0.19), 0px 11px 15px -7px rgba(0, 0, 0, 0.5);
@@ -28,6 +27,10 @@ const HeaderDiv = styled.header`
 	justify-content: center;
 	h1 {
 		margin: 0.75rem;
+		font-size: 1.25rem;
+		@media (max-width: 570px) {
+			font-size: 1.75rem;
+		}
 	}
 `;
 
@@ -35,13 +38,16 @@ const HomeButton = styled.button`
 	color: white;
 	background: #d6532c;
 	text-transform: uppercase;
-	padding: 10px 14px 8px 14px;
+	padding: 0.25rem 0.5rem 0.25rem 0.5rem;
 	border-radius: 5px;
 	box-shadow: 0px 8px 17px 2px rgba(0, 0, 0, 0.14),
 		0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
 	border: none;
-	font-size: 1.5rem;
+	font-size: 0.75rem;
 	margin-right: 1.5rem;
+	@media (max-width: 570px) {
+		font-size: 1rem;
+	}
 	&:focus {
 		outline: 0;
 	}
@@ -51,7 +57,7 @@ const HomeButton = styled.button`
 	&:hover {
 		cursor: pointer;
 		background: rgba(214, 83, 44, 0.75);
-		animation: bounce 0.75s;
+		animation: bounce 1s;
 	}
 	@keyframes bounce {
 		0%,

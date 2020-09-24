@@ -54,6 +54,9 @@ const Grid = (props) => {
 class Buttons extends React.Component {
 	handleSelect = (eventKey) => {
 		this.props.gridSize(eventKey);
+		setTimeout(() => {
+			this.props.seed();
+		}, 200);
 	};
 
 	render() {
@@ -81,23 +84,25 @@ class Buttons extends React.Component {
 					Random
 				</Button>
 
-				<Dropdown>
-					<Dropdown.Toggle title='Grid Size' id='size-menu' variant='secondary'>
-						GRID SIZE
-					</Dropdown.Toggle>
+				<DropDownDiv>
+					<Dropdown>
+						<Dropdown.Toggle title='Grid Size' id='size-menu' variant='secondary'>
+							GRID SIZE
+						</Dropdown.Toggle>
 
-					<Dropdown.Menu>
-						<Dropdown.Item eventKey='1' onSelect={this.handleSelect}>
-							20x10
-						</Dropdown.Item>
-						<Dropdown.Item eventKey='2' onSelect={this.handleSelect}>
-							50x30
-						</Dropdown.Item>
-						<Dropdown.Item eventKey='3' onSelect={this.handleSelect}>
-							70x50
-						</Dropdown.Item>
-					</Dropdown.Menu>
-				</Dropdown>
+						<Dropdown.Menu>
+							<Dropdown.Item eventKey='1' onSelect={this.handleSelect}>
+								20x10
+							</Dropdown.Item>
+							<Dropdown.Item eventKey='2' onSelect={this.handleSelect}>
+								50x30
+							</Dropdown.Item>
+							<Dropdown.Item eventKey='3' onSelect={this.handleSelect}>
+								70x50
+							</Dropdown.Item>
+						</Dropdown.Menu>
+					</Dropdown>
+				</DropDownDiv>
 			</div>
 		);
 	}
@@ -108,8 +113,8 @@ class Game extends React.Component {
 		super();
 
 		this.speed = 100;
-		this.rows = 30;
-		this.cols = 50;
+		this.rows = 20;
+		this.cols = 30;
 
 		this.state = {
 			generation: 0,
@@ -121,6 +126,7 @@ class Game extends React.Component {
 
 	componentDidMount() {
 		this.seed();
+		this.playButton();
 	}
 
 	selectBox = (row, col) => {
@@ -174,16 +180,16 @@ class Game extends React.Component {
 	gridSize = (size) => {
 		switch (size) {
 			case '1':
-				this.cols = 20;
-				this.rows = 10;
+				this.rows = 20;
+				this.cols = 40;
 				break;
 			case '2':
-				this.cols = 50;
 				this.rows = 30;
+				this.cols = 50;
 				break;
 			default:
-				this.cols = 70;
 				this.rows = 50;
+				this.cols = 70;
 		}
 		this.clear();
 	};
@@ -238,9 +244,9 @@ class Game extends React.Component {
 						selectBox={this.selectBox}
 					/>
 					<InputDiv>
-						<InputGroup size='lg' className='input'>
+						<InputGroup size='sm' className='input'>
 							<InputGroup.Prepend>
-								<InputGroup.Text id='basic-addon1'>
+								<InputGroup.Text id='basic-addon1' style={{ fontSize: '.85rem' }}>
 									Speed (in milliseconds){' '}
 								</InputGroup.Text>
 							</InputGroup.Prepend>
@@ -249,11 +255,12 @@ class Game extends React.Component {
 								value={this.speed}
 								onChange={this.handleInterval}
 								onClick={this.handleInterval}
+								style={{ fontSize: '.85rem' }}
 							/>
 						</InputGroup>
 					</InputDiv>
 
-					<GenerationDiv>Generations: {this.state.generation}</GenerationDiv>
+					<GenerationDiv>Generations:{this.state.generation}</GenerationDiv>
 				</div>
 			</GameDiv>
 		);
@@ -268,26 +275,31 @@ const GameDiv = styled.div`
 
 const GenerationDiv = styled.h3`
 	background-color: #e6b8a5;
-	font-size: 1.5rem;
+	font-size: 1rem;
 	margin-top: 1%;
 	border-radius: 5px;
 	font-weight: lighter;
 	letter-spacing: 0.5rem;
 	padding: 0.25rem;
-	width: 23rem;
+	width: 17rem;
 	box-shadow: 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
 		0px 9px 46px 8px rgba(0, 0, 0, 0.12), 0px 11px 15px -7px rgba(0, 0, 0, 0.2);
+	@media (max-width: 570px) {
+		font-size: 1.5rem;
+		width: 20rem;
+	}
 `;
 
 const Button = styled.button`
 	color: white;
 	background: #d6532c;
 	text-transform: uppercase;
-	border-radius: 5px;
+	border-radius: 7px;
 	box-shadow: 0px 8px 17px 2px rgba(0, 0, 0, 0.14),
 		0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
 	border: none;
-	font-size: 1rem;
+	font-size: 0.5rem;
+	padding: 0.25rem 0.5rem 0.25rem 0.5rem;
 	a {
 		text-decoration: none;
 	}
@@ -300,9 +312,29 @@ const Button = styled.button`
 	&: focus {
 		box-shadow: none !important;
 	}
+	@media (max-width: 570px) {
+		width: 50%;
+		margin-top: 1rem;
+		padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+		font-size: 0.8rem;
+	}
 `;
 
 const InputDiv = styled.div`
-	width: 23rem;
+	width: 15rem;
 	margin: 1rem auto;
+`;
+
+const DropDownDiv = styled.div`
+	button {
+		font-size: 0.5rem;
+		padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+		margin-bottom: 0.1rem;
+		@media (max-width: 570px) {
+			width: 10.7rem;
+			margin-top: 1rem;
+			padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+			font-size: 0.8rem;
+		}
+	}
 `;

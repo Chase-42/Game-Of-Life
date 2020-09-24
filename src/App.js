@@ -1,6 +1,7 @@
 import React from 'react';
 // Components
 import Header from './components/header';
+import Footer from './components/footer';
 import Home from './components/home';
 import Game from './components/game';
 // Tools
@@ -15,6 +16,7 @@ function App() {
 			<Header />
 			<Route exact path='/' component={Home} />
 			<Route path='/game' component={Game} />
+			<Footer />
 		</AppDiv>
 	);
 }
