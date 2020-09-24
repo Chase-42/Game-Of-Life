@@ -4,12 +4,13 @@
 The Game of Life is a cellular automation created by John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.
 
 # The Rules 
-**For a space that is 'populated':**
-  Each cell with one or no neighbors dies, as if by solitude.
-  Each cell with four or more neighbors dies, as if by overpopulation.
-  Each cell with two or three neighbors survives.
-**For a space that is 'empty' or 'unpopulated'**
-  Each cell with three neighbors becomes populated.
+**1. For a space that is 'populated':**
+  + Each cell with one or no neighbors dies, as if by solitude.
+  + Each cell with four or more neighbors dies, as if by overpopulation.
+  + Each cell with two or three neighbors survives.
+  
+**2. For a space that is 'empty' or 'unpopulated'**
+  + Each cell with three neighbors becomes populated.
 
 
 ## Hosted Application
