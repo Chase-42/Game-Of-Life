@@ -9,7 +9,7 @@ class Header extends Component {
 				<Link to='/'>
 					<HomeButton>Go Home</HomeButton>
 				</Link>
-				<h1>John Conway's Game of Life</h1>
+				<h1>Game of Life</h1>
 			</HeaderDiv>
 		);
 	}
@@ -27,7 +27,9 @@ const HeaderDiv = styled.header`
 	justify-content: center;
 	h1 {
 		margin: 0.75rem;
-		font-size: 1.25rem;
+		margin-right: 8.5%;
+		font-size: 1.5rem;
+		width: 30%;
 		@media (max-width: 570px) {
 			font-size: 1.75rem;
 		}
@@ -44,7 +46,6 @@ const HomeButton = styled.button`
 		0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
 	border: none;
 	font-size: 0.75rem;
-	margin-right: 1.5rem;
 	@media (max-width: 570px) {
 		font-size: 1rem;
 	}
@@ -57,25 +58,5 @@ const HomeButton = styled.button`
 	&:hover {
 		cursor: pointer;
 		background: rgba(214, 83, 44, 0.75);
-		animation: bounce 1s;
-	}
-	@keyframes bounce {
-		0%,
-		20%,
-		60%,
-		100% {
-			-webkit-transform: translateY(0);
-			transform: translateY(0);
-		}
-
-		40% {
-			-webkit-transform: translateY(-20px);
-			transform: translateY(-20px);
-		}
-
-		80% {
-			-webkit-transform: translateY(-10px);
-			transform: translateY(-10px);
-		}
 	}
 `;

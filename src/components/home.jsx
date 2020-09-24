@@ -131,7 +131,6 @@ const AboutDiv = styled.div`
 	font-weight: 500;
 	border-radius: 5px;
 	margin-top: 3%;
-	margin-bottom: 4%;
 	h3 {
 		font-size: 1.25rem;
 		@media (max-width: 570px) {

@@ -67,7 +67,7 @@ const Footer = styled.footer`
 	position: relative;
 	bottom: 0;
 	text-align: center;
-	margin-top: 25%;
+	margin-top: 10%;
 	div {
 		box-shadow: none;
 	}

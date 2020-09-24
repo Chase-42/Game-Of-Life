@@ -24,7 +24,7 @@ function App() {
 export default App;
 
 const AppDiv = styled.div`
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Epilogue', sans-serif;
 	max-width: 100%;
 	min-width: 100%;
 `;
