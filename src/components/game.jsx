@@ -270,7 +270,7 @@ class Game extends React.Component {
 export default Game;
 
 const GameDiv = styled.div`
-	margin-top: 10%;
+	margin-top: 2%;
 `;
 
 const GenerationDiv = styled.h3`
