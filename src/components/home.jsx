@@ -49,7 +49,7 @@ class Home extends React.Component {
 						how it evolves.
 					</p>
 					<a href='https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life'>
-						🧠 Learn More!
+						Learn More!
 					</a>
 				</AboutDiv>
 			</HomeDiv>
